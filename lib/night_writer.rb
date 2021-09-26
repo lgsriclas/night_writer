@@ -1,7 +1,9 @@
+class NightWriter
+  def initialize
+    @input = File.open(ARGV[0])
+    @output = File.write(ARGV[1])
+  end
 
-
-ARGV[0] = "message.txt"
-ARGV[1] = "braille.txt"
 
 input = File.open(ARGV[0]).each do |line|
 
@@ -15,6 +17,8 @@ File.write(ARGV[1]).each do |line|
 end
 
 puts "Created #{ARGV[1]} containing #{} characters."
+
+end
 
 
 # File.open('./message.txt', 'w') {|file| file.write(input)}
