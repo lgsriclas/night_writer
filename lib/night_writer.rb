@@ -1,10 +1,21 @@
 
 
 ARGV[0] = "message.txt"
+ARGV[1] = "braille.txt"
 
-File.open(ARGV[0]).each do |line|
+input = File.open(ARGV[0]).each do |line|
+
   puts line
+  puts line.length
 end
+
+File.write(ARGV[1]).each do |line|
+  puts line
+  puts line.length
+end
+
+puts "Created #{ARGV[1]} containing #{} characters."
+
 
 # File.open('./message.txt', 'w') {|file| file.write(input)}
 
