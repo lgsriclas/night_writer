@@ -1,24 +1,18 @@
 class NightWriter
+  attr_reader :input,
+              :output
   def initialize
-    @input = File.open(ARGV[0])
-    @output = File.write(ARGV[1])
+    @input = (ARGV[0]).chomp
+    @output = (ARGV[1])
   end
 
-
-input = File.open(ARGV[0]).each do |line|
-
-  puts line
-  puts line.length
+  def created_message
+    "Created #{@output} containing #{@input.length} characters."
+  end
 end
 
-File.write(ARGV[1]).each do |line|
-  puts line
-  puts line.length
-end
-
-puts "Created #{ARGV[1]} containing #{} characters."
-
-end
+test = NightWriter.new
+p test.created_message
 
 
 # File.open('./message.txt', 'w') {|file| file.write(input)}
