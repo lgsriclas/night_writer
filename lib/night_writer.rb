@@ -1,13 +1,24 @@
+require './lib/alphabet'
+
 class NightWriter
   attr_reader :input,
               :output
   def initialize
-    @input = (ARGV[0]).chomp
-    @output = (ARGV[1])
+    @input = File.read(ARGV[0]).chomp
+    @output = File.write(ARGV[1])
+    @alphabet = Alphabet.new
+
+  end
+
+  def translate
+    message = File.open(@input)
+    File.open(output_file, "w") do |file|
+      file.write(message)
+    end
   end
 
   def created_message
-    "Created #{@output} containing #{@input.length} characters."
+    "Created 'braille.txt' containing #{@input.length} characters."
   end
 end
 
