@@ -15,14 +15,16 @@ class NightReader
   end
 
   def write
-    File.open("#{@output}", "w") do |file|
-      file.write
+    File.open(@output, "w") do |file|
+      file.write(read)
     end
   end
 
   def created_message
-    "Created #{@output} containing #{write.length} characters."
+    "Created #{@output} containing #{read.length} characters."
   end
 end
 
 p NightReader.new.created_message
+NightReader.new.read
+NightReader.new.write
