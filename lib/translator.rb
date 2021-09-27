@@ -19,12 +19,15 @@ class Translator
   end
 
   def translate_to_english(input)
-    letters = input.split("\n")
-    letters.map do |letter|
+    letters = input.join.split("\n")
+    x = letters.map do |letter|
       letter.delete(" ")
     end
-    message = @alphabet.find_braille_value(letters)
-    message.map { | row | row.join("")}
+    # x.map do |letter_part|
+    #   letter_part.split(" ")
+    # end.flatten
+    @alphabet.find_braille_value(letters)
+    # message.map { | row | row.join("")}
   end
 
     # letters = []
