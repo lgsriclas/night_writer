@@ -19,8 +19,8 @@ class Translator
   end
 
   def translate_to_english(input)
-    letters = input.join.split("\n")
-    x = letters.map do |letter|
+    letters = input.split("\n")
+    letters.map do |letter|
       letter.delete(" ")
     end
     # x.map do |letter_part|
