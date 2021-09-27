@@ -1,31 +1,29 @@
 require './lib/alphabet'
+require './lib/translator'
 
 class NightWriter
+  include Alphabet
   attr_reader :input,
-              :output,
-              :alphabet
+              :output
+
   def initialize
-    @input = File.readlines(ARGV[0])
-    @output = File.write(ARGV[1])
-    @alphabet = Alphabet.new
+    @input = ARGV[0]
+    @output = ARGV[1]
   end
 
-  def translate
-    message = File.open(@output)
-    File.open(output, "w") do |file|
-      file.write(message)
+  def read
+    File.read(@input)
+  end
+
+  def write
+    File.open("#{@output}", "w") do |file|
+      file.write
     end
   end
 
   def created_message
-    "Created 'braille.txt' containing #{@input.length} characters."
+    "Created #{@output} containing #{read.length} characters."
   end
 end
 
-test = NightWriter.new.translate
-p test.created_message
-
-
-#File.open('./message.txt', 'w') {|file| file.write(input)}
-
-#message = Translator.new(input, output)
+p NightWriter.new.created_message
