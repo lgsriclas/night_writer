@@ -2,17 +2,17 @@ require './lib/alphabet'
 
 class NightWriter
   attr_reader :input,
-              :output
+              :output,
+              :alphabet
   def initialize
-    @input = File.read(ARGV[0]).chomp
+    @input = File.readlines(ARGV[0])
     @output = File.write(ARGV[1])
     @alphabet = Alphabet.new
-
   end
 
   def translate
-    message = File.open(@input)
-    File.open(output_file, "w") do |file|
+    message = File.open(@output)
+    File.open(output, "w") do |file|
       file.write(message)
     end
   end
@@ -22,17 +22,10 @@ class NightWriter
   end
 end
 
-test = NightWriter.new
+test = NightWriter.new.translate
 p test.created_message
 
 
-# File.open('./message.txt', 'w') {|file| file.write(input)}
+#File.open('./message.txt', 'w') {|file| file.write(input)}
 
 #message = Translator.new(input, output)
-
-
-
-# input_array = ARGV
-#
-# puts input_array.length
-# puts input_array.to_s

@@ -1,4 +1,4 @@
-class Alphabet
+module Alphabet
   def initialize
     @characters = {
       'a' => ['0.', '..', '..'],
