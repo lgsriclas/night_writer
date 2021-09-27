@@ -16,8 +16,8 @@ class NightWriter
   end
 
   def write
-    File.open("#{@output}", "w") do |file|
-      file.write
+    File.open(@output, "w") do |file|
+      file.write(read)
     end
   end
 
@@ -27,3 +27,5 @@ class NightWriter
 end
 
 p NightWriter.new.created_message
+NightWriter.new.read
+NightWriter.new.write

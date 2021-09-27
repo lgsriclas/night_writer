@@ -22,7 +22,7 @@ RSpec.describe 'Translator' do
     expect(translator.convert_to_braille('a')).to eq(['0.', '..', '..'])
   end
 
-  it '#input_to_array' do
+  it '#input_to array' do
     translator = Translator.new
 
     expect(translator.input_to_array).to be_an Array
