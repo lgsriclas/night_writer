@@ -73,4 +73,8 @@ class Alphabet
   def find_value(letter)
     characters[letter]
   end
+
+  def find_key(braille)
+    characters.key(braille)
+  end
 end

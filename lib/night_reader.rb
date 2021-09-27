@@ -3,11 +3,13 @@ require './lib/translator'
 
 class NightReader
   attr_reader :input,
-              :output
+              :output,
+              :translator
 
   def initialize
     @input = ARGV[0]
     @output = ARGV[1]
+    @translator = Translator.new
   end
 
   def read
@@ -15,7 +17,7 @@ class NightReader
   end
 
   def translate
-    Translator.translate(read)
+    @translator.translate_to_english(read)
   end
 
   def write
@@ -25,7 +27,7 @@ class NightReader
   end
 
   def created_message
-    "Created #{@output} containing #{@input.size} characters."
+    "Created #{@output} containing #{read.length} characters."
   end
 end
 
