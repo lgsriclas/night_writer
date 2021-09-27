@@ -1,29 +1,40 @@
 class Translator
   attr_reader :alphabet,
-              :night_writer
+              :night_writer,
+              :night_reader
 
   def initialize
     @alphabet = Alphabet.new
-    # @night_writer = NightWriter.new
   end
 
   def translate_to_braille(input)
-    letter_array = []
+    braille_array = []
     input.chars.find_all do |character|
       if character != '\n'
-        letter_array << @alphabet.find_value(character)
+        braille_array << @alphabet.find_letter_value(character)
       end
     end
-    x = letter_array.compact.transpose
+    x = braille_array.compact.transpose
     x.map { | row | row.join(' ')}.join("\n")
   end
 
   def translate_to_english(input)
-    braille_array = []
-    input.find_all do |character|
-      if character != '\n'
-        braille_array << @alphabet.find_key(character)
-      end
+    letters = input.split("\n")
+    letters.map do |letter|
+      letter.delete(" ")
     end
+    message = @alphabet.find_braille_value(letters)
+    message.map { | row | row.join("")}
   end
+
+    # letters = []
+    # input.each do |array|
+    #   if array != '\n'
+    #     letters << @alphabet.find_braille_value(input)
+    #   end
+    #   x = letters.compact.transpose
+    #   x.map { | row | row.join(' ')}.join("\n")
+    # end
+    # letters.uniq.join
+
 end
