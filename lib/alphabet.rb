@@ -1,4 +1,6 @@
-module Alphabet
+class Alphabet
+  attr_reader :characters
+
   def initialize
     @characters = {
       'a' => ['0.', '..', '..'],

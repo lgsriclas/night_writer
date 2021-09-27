@@ -1,5 +1,8 @@
 class Translator
-  include Alphabet
+  attr_reader :alphabet
+  
   def initialize
+    @alphabet = Alphabet.new
   end
+
 end

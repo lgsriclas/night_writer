@@ -2,9 +2,9 @@ require './lib/alphabet'
 require './lib/translator'
 
 class NightWriter
-  include Alphabet
   attr_reader :input,
-              :output
+              :output,
+              :alphabet
 
   def initialize
     @input = ARGV[0]
