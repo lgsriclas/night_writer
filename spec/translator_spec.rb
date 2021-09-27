@@ -1,5 +1,6 @@
 require './lib/night_writer'
 require './lib/translator'
+require './lib/alphabet'
 
 RSpec.describe 'Translator' do
   it '#exists' do
@@ -19,12 +20,7 @@ RSpec.describe 'Translator' do
   it '#convert_to_braille' do
     translator = Translator.new
 
-    expect(translator.convert_to_braille('a')).to eq(['0.', '..', '..'])
+    expect(translator.translate('a')).to eq("0.\n..\n..")
   end
 
-  it '#input_to array' do
-    translator = Translator.new
-
-    expect(translator.input_to_array).to be_an Array
-  end
 end

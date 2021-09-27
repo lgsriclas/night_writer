@@ -1,8 +1,10 @@
 class Alphabet
   attr_reader :characters
-
   def initialize
-    @characters = {
+  end
+
+  def characters
+    {
       "a" => ["0.", "..", ".."],
       "b" => ["0.", "0.", ".."],
       "c" => ["00", "..", ".."],
@@ -66,5 +68,9 @@ class Alphabet
       "?" => ["..", "00", "0."],
       "#" => [".0", ".0", "00"],
       }
+  end
+
+  def find_value(letter)
+    characters[letter]
   end
 end

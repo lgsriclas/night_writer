@@ -14,17 +14,22 @@ class NightReader
     File.read(@input)
   end
 
+  def translate
+    Translator.translate(read)
+  end
+
   def write
     File.open(@output, "w") do |file|
-      file.write(read)
+      file.write(translate)
     end
   end
 
   def created_message
-    "Created #{@output} containing #{read.length} characters."
+    "Created #{@output} containing #{@input.size} characters."
   end
 end
 
 p NightReader.new.created_message
 NightReader.new.read
+NightReader.new.translate
 NightReader.new.write
