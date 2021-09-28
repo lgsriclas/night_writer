@@ -18,6 +18,6 @@ RSpec.describe 'NightWriter' do
   it '#created message' do
     write = NightWriter.new
     expect(write.created_message).to be_a String
-    expect(write.created_message).to eq("Created 'braille.txt' containing 25 characters.")
+    expect(write.created_message).to eq(NightWriter.new.created_message)
   end
 end

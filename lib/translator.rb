@@ -27,7 +27,7 @@ class Translator
     end
     results.uniq.join
   end
-
+  #
   #   results = []
   #   letters = input.split("\n")
   #   letters.each do |letter|
