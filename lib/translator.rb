@@ -10,7 +10,7 @@ class Translator
   def translate_to_braille(input)
     braille_array = []
     input.chars.find_all do |character|
-      if character != '\n'
+      if character != "\n"
         braille_array << @alphabet.find_letter_value(character)
       end
     end
@@ -19,25 +19,25 @@ class Translator
   end
 
   def translate_to_english(input)
+    results = []
     letters = input.split("\n")
-    letters.map do |letter|
+        letters.map do |letter|
       letter.delete(" ")
+      results << @alphabet.find_braille_value(letters)
     end
-    # x.map do |letter_part|
-    #   letter_part.split(" ")
-    # end.flatten
-    @alphabet.find_braille_value(letters)
-    # message.map { | row | row.join("")}
+    results.uniq.join
   end
 
-    # letters = []
-    # input.each do |array|
-    #   if array != '\n'
-    #     letters << @alphabet.find_braille_value(input)
-    #   end
-    #   x = letters.compact.transpose
-    #   x.map { | row | row.join(' ')}.join("\n")
-    # end
-    # letters.uniq.join
+  #   results = []
+  #   letters = input.split("\n")
+  #   letters.each do |letter|
+  #     if letter != '\n'
+  #       results << @alphabet.find_braille_value(letter)
+  #     end
+  #     x = results.compact.transpose
+  #     x.map { | row | row.join(' ')}.join("\n")
+  #   end
+  #   results.uniq.join
+  # end
 
 end

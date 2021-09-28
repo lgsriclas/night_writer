@@ -10,23 +10,25 @@ RSpec.describe 'Alphabet' do
   it '#characters' do
     alphabet = Alphabet.new
 
-    expect(alphabet.characters).to be_a Hash
+    expect(alphabet.english_characters).to be_a Hash
+    expect(alphabet.braille_characters).to be_a Hash
+
   end
 
-  it 'find_value' do
+  it 'find_letter_value' do
     alphabet = Alphabet.new
 
-    expect(alphabet.find_value("f")).to be_an Array
-    expect(alphabet.find_value("a")).to eq(["0.", "..", ".."])
-    expect(alphabet.find_value("A")).to eq(["..0.", "....", ".0.."])
+    expect(alphabet.find_letter_value("f")).to be_an Array
+    expect(alphabet.find_letter_value("a")).to eq(["0.", "..", ".."])
+    expect(alphabet.find_letter_value("A")).to eq(["..0.", "....", ".0.."])
   end
 
   it 'find_key' do
     alphabet = Alphabet.new
 
-    expect(alphabet.find_key(["0.", "..", ".."])).to be_a String
-    expect(alphabet.find_key(["0.", "..", ".."])).to eq("a")
-    expect(alphabet.find_key(["..0.", "....", ".0.."])).to eq("A")
+    expect(alphabet.find_braille_value(["0.", "..", ".."])).to be_a String
+    expect(alphabet.find_braille_value(["0.", "..", ".."])).to eq("a")
+    expect(alphabet.find_braille_value(["..0.", "....", ".0.."])).to eq("A")
 
 
   end
