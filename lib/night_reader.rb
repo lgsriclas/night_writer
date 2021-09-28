@@ -27,7 +27,7 @@ class NightReader
   end
 
   def created_message
-    "Created #{@output} containing #{@input.length} characters."
+    "Created #{@output} containing #{@output.length} characters."
   end
 end
 

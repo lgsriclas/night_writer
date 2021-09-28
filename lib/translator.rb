@@ -19,14 +19,28 @@ class Translator
   end
 
   def translate_to_english(input)
-    results = []
-    letters = input.split("\n")
-        letters.map do |letter|
-      letter.delete(" ")
-      results << @alphabet.find_braille_value(letters)
+    input_string = input.split("\n")
+    input_array = input_string.map do |input|
+      input.scan(/../)
     end
-    results.uniq.join
+    braille_arrays = input_array.transpose
+    braille_to_english = braille_arrays.map do |character|
+      @alphabet.find_braille_value(character)
+    end.join
+    # braille_to_english
+    require "pry"; binding.pry
   end
+
+
+
+  #   results = []
+  #   letters = input.split("\n")
+  #       letters.map do |letter|
+  #     letter.delete(" ")
+  #     results << @alphabet.find_braille_value(letters)
+  #   end
+  #   results.uniq.join
+  # end
   #
   #   results = []
   #   letters = input.split("\n")

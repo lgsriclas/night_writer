@@ -12,7 +12,6 @@ RSpec.describe 'Alphabet' do
 
     expect(alphabet.english_characters).to be_a Hash
     expect(alphabet.braille_characters).to be_a Hash
-
   end
 
   it 'find_letter_value' do
@@ -29,7 +28,5 @@ RSpec.describe 'Alphabet' do
     expect(alphabet.find_braille_value(["0.", "..", ".."])).to be_a String
     expect(alphabet.find_braille_value(["0.", "..", ".."])).to eq("a")
     expect(alphabet.find_braille_value(["..0.", "....", ".0.."])).to eq("A")
-
-
   end
 end
