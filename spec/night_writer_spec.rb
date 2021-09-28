@@ -3,6 +3,8 @@ require './lib/night_writer'
 RSpec.describe 'NightWriter' do
   it 'exist' do
     write = NightWriter.new
+    input = ARGV[0]
+    output = ARGV[1]
 
     expect(write).to be_an_instance_of NightWriter
   end
