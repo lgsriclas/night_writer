@@ -26,8 +26,7 @@ RSpec.describe 'Translator' do
 
   it '#translate_to_english' do
     translator = Translator.new
-
-    # expect(translator.translate_to_english(["0.", "..", ".."])).to eq("a")
+    
     expect(translator.translate_to_english("0.\n..\n..")).to eq("a")
     expect(translator.translate_to_english("..00\n..00\n.00.")).to eq("Q")
   end
