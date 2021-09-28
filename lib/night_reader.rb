@@ -26,8 +26,18 @@ class NightReader
     end
   end
 
+  def wrap_text
+    results = []
+    translate.each_char do |characters|
+      if characters.length > 40
+        results << characters.join.slice!(40..-1)
+      end
+      results
+    end
+  end
+
   def created_message
-    "Created #{@output} containing #{@output.length} characters."
+    "Created #{@output} containing #{@input.length} characters."
   end
 end
 
@@ -35,3 +45,4 @@ p NightReader.new.created_message
 NightReader.new.read
 NightReader.new.translate
 NightReader.new.write
+NightReader.new.wrap_text

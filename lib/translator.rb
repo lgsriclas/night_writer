@@ -12,8 +12,8 @@ class Translator
     input.chars.find_all do |character|
       braille_array << @alphabet.find_letter_value(character)
     end
-    x = braille_array.compact.transpose
-    x.map { | row | row.join(' ')}.join("\n")
+    array = braille_array.compact.transpose
+    array.map { | row | row.join(' ')}.join("\n")
   end
 
   def translate_to_english(input)
@@ -22,9 +22,16 @@ class Translator
       input.scan(/../)
     end
     braille_arrays = input_array.transpose
-    braille_arrays.map do |array|
-      @alphabet.find_braille_value(array)
+    braille_arrays.find_all.map do |characters|
+      @alphabet.find_braille_value(characters)
     end.join
-    require "pry"; binding.pry
+
+    # results = []
+    # letters = input.split("\n")
+    # letters.map do |letter|
+    #   letter.delete(" ")
+    #   results << @alphabet.find_braille_value(letters)
+    # end
+    # results.uniq.join
   end
 end
