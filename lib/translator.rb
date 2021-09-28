@@ -10,9 +10,7 @@ class Translator
   def translate_to_braille(input)
     braille_array = []
     input.chars.find_all do |character|
-      if character != "\n"
-        braille_array << @alphabet.find_letter_value(character)
-      end
+      braille_array << @alphabet.find_letter_value(character)
     end
     x = braille_array.compact.transpose
     x.map { | row | row.join(' ')}.join("\n")
@@ -27,5 +25,6 @@ class Translator
     braille_arrays.map do |array|
       @alphabet.find_braille_value(array)
     end.join
+    require "pry"; binding.pry
   end
 end
