@@ -23,7 +23,7 @@ RSpec.describe 'Alphabet' do
     expect(alphabet.find_letter_value("A")).to eq(["..0.", "....", ".0.."])
   end
 
-  it 'find_key' do
+  it 'find_braille_value' do
     alphabet = Alphabet.new
 
     expect(alphabet.find_braille_value(["0.", "..", ".."])).to be_a String
